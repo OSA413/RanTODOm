@@ -1,10 +1,9 @@
 import './App.scss';
+import Main from "./app/main";
 
 function App() {
   return (
-    <div className="App">
-      <div className="w-16 h-16 bg-red-900 rounded-xl"></div>
-    </div>
+    <Main />
   );
 }
 
