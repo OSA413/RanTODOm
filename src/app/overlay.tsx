@@ -1,9 +1,16 @@
 const Overlay = () => {
+    let buttons = ["🎲", "+"].map(Button);
     return (
-        <div className="absolute right-4 bottom-4 flex">
-            <div className="h-16 w-16 rounded-full bg-gray-700 text-white grid place-items-center font-bold text-4xl align-middle">
-                +
-            </div>
+        <div className="fixed right-4 bottom-4 flex gap-4">
+            {buttons}
+        </div>
+    )
+}
+
+const Button = (content: string) => {
+    return (
+        <div className="h-16 w-16 rounded-full bg-gray-700 text-white grid place-items-center font-bold text-4xl align-middle">
+            {content}
         </div>
     )
 }
