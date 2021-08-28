@@ -13,7 +13,7 @@ const TodoElement = (element: ListElement) => {
 }
 
 const TodoList = () => {
-    let a = DataProvider.Table.Get();
+    let a: List = DataProvider.Table.Get();
 
     let elements = a.elements.map(TodoElement)
 

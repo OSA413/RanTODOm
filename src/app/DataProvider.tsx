@@ -3,6 +3,11 @@ import { ListElement, List } from "./List/ListInterface";
 
 class Table {
     static list: List;
+    static Get = () => Table.list;
+    static Add = (element: ListElement) => {
+        Table.list.elements.push(element);
+    }
+
     static Init = () => {
         Table.list = {
             "elements": [
@@ -18,11 +23,9 @@ class Table {
                     id: 3,
                     description: "gbreiognreio"
                 }
-            ]       
+            ]
         }
     }
-
-    static Get = () => Table.list;
 }
 
 class DataProvider {
