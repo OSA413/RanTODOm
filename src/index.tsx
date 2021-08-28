@@ -4,6 +4,9 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import DataProvider from './app/DataProvider';
+DataProvider.Init();
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

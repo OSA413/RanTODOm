@@ -1,3 +1,4 @@
+import DataProvider from "../DataProvider"
 import { List, ListElement } from "./ListInterface"
 
 const TodoElement = (element: ListElement) => {
@@ -12,22 +13,7 @@ const TodoElement = (element: ListElement) => {
 }
 
 const TodoList = () => {
-    let a: List = {
-        "elements": [
-            {
-                id: 1,
-                description: "gbreiognreio"
-            },
-            {
-                id: 2,
-                description: "gbreiognreio"
-            },
-            {
-                id: 3,
-                description: "gbreiognreio"
-            }
-        ]       
-    }
+    let a = DataProvider.Table.Get();
 
     let elements = a.elements.map(TodoElement)
 
