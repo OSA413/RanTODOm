@@ -1,4 +1,5 @@
 import { ListElement, List } from "./List/ListInterface";
+import StorageProvider from "./StorageProvider";
 
 
 class Table {
@@ -7,24 +8,13 @@ class Table {
     static Add = (element: ListElement) => {
         Table.list.elements.push(element);
     }
+    static Delete = (id: ListElement["id"]) => {
+        Table.list.elements.splice(Table.list.elements.findIndex(x => x.id === id), 1);
+        console.log(Table.Get());
+    }
 
-    static Init = () => {
-        Table.list = {
-            "elements": [
-                {
-                    id: 1,
-                    description: "gbreiognreio"
-                },
-                {
-                    id: 2,
-                    description: "gbreiognreio"
-                },
-                {
-                    id: 3,
-                    description: "gbreiognreio"
-                }
-            ]
-        }
+    static Init = (list?: List) => {
+        Table.list = list ?? { elements: []};
     }
 }
 
@@ -32,7 +22,9 @@ class DataProvider {
     static Table = Table;
 
     static Init = () => {
-        Table.Init();
+        StorageProvider.Init();
+        console.log(StorageProvider.LoadData());
+        Table.Init(StorageProvider.LoadData());
     } 
 }
 
