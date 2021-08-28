@@ -31,22 +31,7 @@ class StorageProvider {
 
 class localStorageProvider implements Storage {
     LoadData = () :List =>{
-        return {
-            "elements": [
-                {
-                    id: 1,
-                    description: "gbreiognreio"
-                },
-                {
-                    id: 2,
-                    description: "gbreiognreio"
-                },
-                {
-                    id: 3,
-                    description: "gbreiognreio"
-                }
-            ]
-        }
+        return JSON.parse(localStorage.getItem("list") ?? "{ \"elements\": []}");
     }
 
     SaveData = (list: List) => {

@@ -10,7 +10,7 @@ class Table {
     }
     static Delete = (id: ListElement["id"]) => {
         Table.list.elements.splice(Table.list.elements.findIndex(x => x.id === id), 1);
-        console.log(Table.Get());
+        StorageProvider.SaveData(Table.Get());
     }
 
     static Init = (list?: List) => {
@@ -23,7 +23,6 @@ class DataProvider {
 
     static Init = () => {
         StorageProvider.Init();
-        console.log(StorageProvider.LoadData());
         Table.Init(StorageProvider.LoadData());
     } 
 }
