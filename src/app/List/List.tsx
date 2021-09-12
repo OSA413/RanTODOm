@@ -1,6 +1,6 @@
 import React, { useReducer } from "react"
 import DataProvider from "../DataProvider"
-import { ListElement } from "./ListInterface"
+import { ListElement } from "../interfaces/ListInterface"
 
 const TodoElement = (element: ListElement, index: number, forceUpdate: React.DispatchWithoutAction) => {
     const del = () => {

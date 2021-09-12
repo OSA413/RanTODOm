@@ -1,4 +1,4 @@
-import { ListElement, List } from "./List/ListInterface";
+import { ListElement, List } from "./interfaces/ListInterface";
 import StorageProvider from "./StorageProvider";
 
 

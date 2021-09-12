@@ -1,4 +1,4 @@
-import { List } from "./List/ListInterface";
+import { List } from "./interfaces/ListInterface";
 
 enum StorageType {
     "localstorage"
