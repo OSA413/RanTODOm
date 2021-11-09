@@ -1,19 +1,28 @@
+import { createRef } from "react";
 import DataProvider from "./DataProvider";
+
 import plus from "./../resources/plus.svg";
-import { useRef } from "react";
 
 const Overlay = ({update}: {update: ()=>any}) => {
-    const input = useRef<HTMLInputElement>(null);
+    const setFocus = (ref: React.RefObject<HTMLInputElement>) => ref.current?.focus();
+    const input = createRef<HTMLInputElement>();
+
+    const focus = () => setTimeout(() => {
+        if (["INPUT", "SELECT"].includes(document.activeElement?.tagName ?? "")) return;
+        setFocus(input);
+    }, 500)
 
     const addItem = (): boolean => {
-        if (input.current !== null && input.current.value !== "") {
-            DataProvider.Table.Add(input.current.value);
-            input.current.value = "";
-            input.current.focus();
-            update();
-            return true;
-        }
-        return false;
+        if (input.current === null) return false;
+
+        let text = input.current.value.trim();
+        if (text === "") return false;
+
+        DataProvider.Table.Add(input.current.value);
+        input.current.value = "";
+        setFocus(input);
+        update();
+        return true;
     }
 
     const selectRandom = () => {
@@ -24,7 +33,8 @@ const Overlay = ({update}: {update: ()=>any}) => {
     return (
         <div className="w-full fixed bottom-4 px-4 flex gap-4">
             <input type="text" className="input-bar" placeholder="Enter TODO text" ref={input} autoFocus
-            onKeyPress={e => e.key === "Enter" && (addItem() || selectRandom())}/>
+            onKeyPress={e => e.key === "Enter" && (addItem() || selectRandom())}
+            onBlur={focus}/>
             <div className="overlay-button" onClick={selectRandom}>🎲</div>
             <div className="overlay-button" onClick={addItem}><img src={plus} alt="+"/></div>
         </div>

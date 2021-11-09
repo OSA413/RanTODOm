@@ -12,6 +12,7 @@ class Table {
             element = {description: element, id: Math.round(Math.random() * Number.MAX_SAFE_INTEGER)};
 
         Table.list.elements.push(element);
+        StorageProvider.SaveData(Table.Get());
     }
     static Delete = (id: ListElement["id"]) => {
         Table.list.elements.splice(Table.list.elements.findIndex(x => x.id === id), 1);
