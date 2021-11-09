@@ -4,8 +4,13 @@ import StorageProvider from "./StorageProvider";
 
 class Table {
     static list: List;
+    static SelectedIndex: number|undefined;
     static Get = () => Table.list;
-    static Add = (element: ListElement) => {
+    static Add = (element: ListElement|string) => {
+        console.log(element);
+        if (typeof element === "string")
+            element = {description: element, id: Math.round(Math.random() * Number.MAX_SAFE_INTEGER)};
+
         Table.list.elements.push(element);
     }
     static Delete = (id: ListElement["id"]) => {
