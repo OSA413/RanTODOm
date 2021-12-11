@@ -1,5 +1,6 @@
 import { List } from "./interfaces/ListInterface";
 import {createArrayCsvStringifier} from "csv-writer";
+import { saveAs } from "file-saver";
 
 enum StorageType {
     "localstorage"
@@ -30,7 +31,10 @@ class StorageProvider {
     static SaveData = (list: List) => {
         StorageProvider.storage?.SaveData(list);
         let csv = createArrayCsvStringifier({});
-        console.log(csv.stringifyRecords(list.elements.map(e => [e.description])));
+        let csvText = csv.stringifyRecords(list.elements.map(e => [e.description]));
+        
+        var blob = new Blob([csvText], {type: "text/csv;charset=utf-8"});
+        saveAs(blob, "My RanTODOm list.csv");
     }
 }
 
