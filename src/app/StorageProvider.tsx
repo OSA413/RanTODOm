@@ -1,7 +1,6 @@
 import { List } from "./interfaces/ListInterface";
 import { saveAs } from "file-saver";
 
-import {createArrayCsvStringifier} from "csv-writer";
 import Papa from "papaparse";
 
 enum StorageType {
@@ -32,13 +31,11 @@ class StorageProvider {
     static LoadData = () => StorageProvider.storage?.LoadData();
     static SaveData = (list: List) => {
         StorageProvider.storage?.SaveData(list);
-        //let csv = createArrayCsvStringifier({});
-        //let csvText = csv.stringifyRecords(list.elements.map(e => [e.description]));
-        
+        let csvText = Papa.unparse(list.elements.map(e => [e.description]));
         //var blob = new Blob([csvText], {type: "text/csv;charset=utf-8"});
         //saveAs(blob, "My RanTODOm list.csv");
-        let a = Papa.parse("tess\nasasas\nfneionoi").data
-        console.log(a);
+        let data = Papa.parse(csvText).data.flat()
+        console.log(data);
     }
 }
 
