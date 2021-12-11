@@ -1,4 +1,5 @@
 import { List } from "./interfaces/ListInterface";
+import {createArrayCsvStringifier} from "csv-writer";
 
 enum StorageType {
     "localstorage"
@@ -26,7 +27,11 @@ class StorageProvider {
     }
 
     static LoadData = () => StorageProvider.storage?.LoadData();
-    static SaveData = (list: List) => StorageProvider.storage?.SaveData(list);
+    static SaveData = (list: List) => {
+        StorageProvider.storage?.SaveData(list);
+        let csv = createArrayCsvStringifier({});
+        console.log(csv.stringifyRecords(list.elements.map(e => [e.description])));
+    }
 }
 
 class localStorageProvider implements Storage {
