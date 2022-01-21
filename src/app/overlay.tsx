@@ -1,8 +1,6 @@
 import { createRef } from "react";
 import DataProvider from "./DataProvider";
 
-import plus from "./../resources/plus.svg";
-
 const Overlay = ({update, setSettingsVisible}: {update: ()=>any, setSettingsVisible: (arg: boolean)=>any}) => {
     const setFocus = (ref: React.RefObject<HTMLInputElement>) => ref.current?.focus();
     const input = createRef<HTMLInputElement>();
@@ -36,7 +34,7 @@ const Overlay = ({update, setSettingsVisible}: {update: ()=>any, setSettingsVisi
             onKeyPress={e => e.key === "Enter" && (addItem() || selectRandom())}
             onBlur={focus}/>
             <div className="overlay-button" onClick={selectRandom}>🎲</div>
-            <div className="overlay-button" onClick={addItem}><img src={plus} alt="+"/></div>
+            <div className="overlay-button" onClick={addItem}><img src="RanTODOm/resources/plus.svg" alt="+"/></div>
         </div>
     )
 }
