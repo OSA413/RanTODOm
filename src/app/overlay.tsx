@@ -3,7 +3,7 @@ import DataProvider from "./DataProvider";
 
 import plus from "./../resources/plus.svg";
 
-const Overlay = ({update}: {update: ()=>any}) => {
+const Overlay = ({update, setSettingsVisible}: {update: ()=>any, setSettingsVisible: (arg: boolean)=>any}) => {
     const setFocus = (ref: React.RefObject<HTMLInputElement>) => ref.current?.focus();
     const input = createRef<HTMLInputElement>();
 
