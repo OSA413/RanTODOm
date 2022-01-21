@@ -9,12 +9,12 @@ const Settings = ({shown, setShown: setShown, update}: {shown: boolean, setShown
                 <div className="text-4xl font-bold mx-auto text-center">Data</div>
                 <div className="text-xl flex justify-between items-center">
                     <div>Import CSV file</div>
-                    <div className="text-white font-bold self-center text-center text-base p-2 bg-blue-700 rounded-lg"
+                    <div className="text-white font-bold self-center text-center text-base p-2 bg-blue-700 rounded-lg cursor-pointer"
                     onClick={() => StorageProvider.ImportData(update)}>Select a file...</div>
                 </div>
                 <div className="text-xl flex justify-between items-center">
                     <div>Export CSV file</div>
-                    <div className="text-white font-bold self-center text-center text-base p-2 bg-blue-700 rounded-lg"
+                    <div className="text-white font-bold self-center text-center text-base p-2 bg-blue-700 rounded-lg cursor-pointer"
                     onClick={StorageProvider.ExportData}>Download CSV</div>
                 </div>
                 <hr/>
