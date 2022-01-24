@@ -35,7 +35,7 @@ const Overlay = ({update, setSettingsVisible}: {update: ()=>any, setSettingsVisi
             onKeyPress={e => e.key === "Enter" && (addItem() || selectRandom())}
             onBlur={focus}/>
             <div className="overlay-button" onClick={selectRandom}>🎲</div>
-            <div className="overlay-button" onClick={addItem}><img src="RanTODOm/resources/plus.svg" alt="+"/></div>
+            <div className="overlay-button" onClick={addItem}><img src="resources/plus.svg" alt="+"/></div>
         </div>
     )
 }
