@@ -28,7 +28,7 @@ const TodoList = () => {
     let elements = DataProvider.Table.Get().elements.map((x, i) => TodoElement(x, i, forceUpdate))
 
     return (
-        <div className="px-4">
+        <div className="px-4 mb-24" id="todo-list">
             {elements}
         </div>
     )
