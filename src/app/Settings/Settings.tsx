@@ -3,7 +3,7 @@ import StorageProvider from "../StorageProvider";
 const Settings = ({shown, setShown: setShown, update}: {shown: boolean, setShown:(x:boolean)=>any, update: ()=>any}): JSX.Element => {
     if (!shown) return <></>
     return (
-        <div className="z-10 w-96 h-4/5 border-2 rounded-lg bg-white fixed inset-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4">
+        <div className="z-10 w-full sm:w-96 h-full sm:h-4/5 border-2 rounded-lg bg-white fixed inset-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4">
             <div className="absolute top-2 right-2 cursor-pointer" onClick={()=>setShown(false)}>❌</div>
             <div className="flex flex-col gap-2">
                 <div className="text-4xl font-bold mx-auto text-center">Data</div>

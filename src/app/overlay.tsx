@@ -30,12 +30,12 @@ const Overlay = ({update, setSettingsVisible}: {update: ()=>any, setSettingsVisi
     }
 
     return (
-        <div className="w-full fixed bottom-4 px-4 flex gap-4">
+        <div className="w-full fixed bottom-4 px-1 sm:px-4 flex gap-1 sm:gap-4">
             <input type="text" className="input-bar" placeholder="Enter TODO text" ref={input} autoFocus
             onKeyPress={e => e.key === "Enter" && (addItem() || selectRandom())}
             onBlur={focus}/>
-            <div className="overlay-button" onClick={selectRandom}>🎲</div>
             <div className="overlay-button" onClick={addItem}><img src="resources/plus.svg" alt="+"/></div>
+            <div className="overlay-button" onClick={selectRandom}>🎲</div>
         </div>
     )
 }
