@@ -1,11 +1,15 @@
 import { createRef } from "react";
 import DataProvider from "./DataProvider";
 
+import resolveConfig from 'tailwindcss/resolveConfig';
+let TailwindConfigDefault = resolveConfig({theme: {}, darkMode: false});
+
 const Overlay = ({update, setSettingsVisible}: {update: ()=>any, setSettingsVisible: (arg: boolean)=>any}) => {
     const setFocus = (ref: React.RefObject<HTMLInputElement>) => ref.current?.focus();
     const input = createRef<HTMLInputElement>();
 
     const focus = () => setTimeout(() => {
+        if (Number((TailwindConfigDefault.theme.screens as any).sm.replace("px", "")) > window.screen.width) return;
         if (["INPUT", "SELECT"].includes(document.activeElement?.tagName ?? "")) return;
         setFocus(input);
     }, 500)
@@ -30,7 +34,7 @@ const Overlay = ({update, setSettingsVisible}: {update: ()=>any, setSettingsVisi
     }
 
     return (
-        <div className="w-full fixed bottom-4 px-1 sm:px-4 flex gap-1 sm:gap-4">
+        <div className="w-full fixed bottom-1 sm:bottom-4 px-1 sm:px-4 flex gap-1 sm:gap-4">
             <input type="text" className="input-bar" placeholder="Enter TODO text" ref={input} autoFocus
             onKeyPress={e => e.key === "Enter" && (addItem() || selectRandom())}
             onBlur={focus}/>
