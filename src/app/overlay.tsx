@@ -2,7 +2,7 @@ import { createRef } from "react";
 import DataProvider from "./DataProvider";
 
 import resolveConfig from 'tailwindcss/resolveConfig';
-let TailwindConfigDefault = resolveConfig({theme: {}, darkMode: false});
+let TailwindConfigDefault = resolveConfig({theme: {}, darkMode: "media", content: {files: []}});
 
 const Overlay = ({update, setSettingsVisible}: {update: ()=>any, setSettingsVisible: (arg: boolean)=>any}) => {
     const setFocus = (ref: React.RefObject<HTMLInputElement>) => ref.current?.focus();
