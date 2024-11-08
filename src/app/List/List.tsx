@@ -1,5 +1,5 @@
 import React, { useReducer } from "react"
-import DataProvider from "../DataProvider"
+import { DataProvider } from "../DataProvider"
 import { ListElement } from "../interfaces/ListInterface"
 
 const TodoElement = (element: ListElement, index: number, forceUpdate: React.DispatchWithoutAction) => {
@@ -23,7 +23,7 @@ const TodoElement = (element: ListElement, index: number, forceUpdate: React.Dis
     )
 }
 
-const TodoList = () => {
+export const TodoList = () => {
     const [, forceUpdate] = useReducer(x => x + 1, 0);
     let elements = DataProvider.Table.Get().elements.map((x, i) => TodoElement(x, i, forceUpdate))
 
@@ -33,5 +33,3 @@ const TodoList = () => {
         </div>
     )
 }
-
-export default TodoList;

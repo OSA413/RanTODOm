@@ -1,10 +1,10 @@
 import { createRef } from "react";
-import DataProvider from "./DataProvider";
+import { DataProvider } from "./DataProvider";
 
 import resolveConfig from 'tailwindcss/resolveConfig';
 let TailwindConfigDefault = resolveConfig({theme: {}, darkMode: "media", content: {files: []}});
 
-const Overlay = ({update, setSettingsVisible}: {update: ()=>any, setSettingsVisible: (arg: boolean)=>any}) => {
+export const Overlay = ({update, setSettingsVisible}: {update: ()=>any, setSettingsVisible: (arg: boolean)=>any}) => {
     const setFocus = (ref: React.RefObject<HTMLInputElement>) => ref.current?.focus();
     const input = createRef<HTMLInputElement>();
 
@@ -43,5 +43,3 @@ const Overlay = ({update, setSettingsVisible}: {update: ()=>any, setSettingsVisi
         </div>
     )
 }
-
-export default Overlay;

@@ -1,4 +1,4 @@
-const NewTodoElement = (index: number, forceUpdate: React.DispatchWithoutAction) => {
+export const NewTodoElement = (index: number, forceUpdate: React.DispatchWithoutAction) => {
     const del = () => {
         forceUpdate();
     }
@@ -14,5 +14,3 @@ const NewTodoElement = (index: number, forceUpdate: React.DispatchWithoutAction)
         </div>
     )
 }
-
-export default NewTodoElement;

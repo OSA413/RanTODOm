@@ -1,11 +1,11 @@
-import Overlay from "./overlay";
-import TodoList from "./List/List";
-import Header from "./header/header";
+import { Overlay } from "./overlay";
+import { TodoList } from "./List/List";
+import { Header } from "./header/header";
 import { useReducer, useState } from "react";
-import Settings from "./Settings";
-import Donate from "./Donate";
+import { Settings } from "./Settings";
+import { Donate } from "./Donate";
 
-const Main = () => {
+export const Main = () => {
     const [, forceUpdate] = useReducer(x => x + 1, 0);
     const [settingsVisible, setSettingsVisible] = useState(false);
     const [donateVisible, setDonateVisible] = useState(false);
@@ -20,5 +20,3 @@ const Main = () => {
         </div>
     )
 }
-
-export default Main

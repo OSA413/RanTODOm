@@ -1,9 +1,7 @@
-import Main from "./app/main";
+import { Main } from "./app/main";
 
-function App() {
+export function App() {
   return (
     <Main />
   );
 }
-
-export default App;

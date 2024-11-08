@@ -2,7 +2,7 @@ import { List } from "./interfaces/ListInterface";
 import { saveAs } from "file-saver";
 
 import Papa from "papaparse";
-import DataProvider from "./DataProvider";
+import { DataProvider } from "./DataProvider";
 
 enum StorageType {
     "localstorage"
@@ -13,7 +13,7 @@ interface Storage {
     SaveData(list :List): void;
 }
 
-class StorageProvider {
+export default class StorageProvider {
     static storageType = StorageType.localstorage;
     static storage?: Storage;
 
@@ -71,5 +71,3 @@ class localStorageProvider implements Storage {
         localStorage.setItem("list", JSON.stringify(list));
     }
 }
-
-export default StorageProvider;

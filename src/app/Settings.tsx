@@ -1,6 +1,6 @@
 import StorageProvider from "./StorageProvider";
 
-const Settings = ({shown, setShown, update}: {shown: boolean, setShown:(x:boolean)=>any, update: ()=>any}): JSX.Element => {
+export const Settings = ({shown, setShown, update}: {shown: boolean, setShown:(x:boolean)=>any, update: ()=>any}): JSX.Element => {
     if (!shown) return <></>
     return (
         <div className="z-10 w-full sm:w-96 h-full sm:h-4/5 border-2 rounded-lg bg-white fixed inset-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4">
@@ -23,5 +23,3 @@ const Settings = ({shown, setShown, update}: {shown: boolean, setShown:(x:boolea
         </div>
     )
 }
-
-export default Settings;

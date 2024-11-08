@@ -1,8 +1,4 @@
-const Header = ({setShowSettings, setShowDonate}:{setShowSettings: (x:boolean)=>any, setShowDonate:(x:boolean)=>void}) => {
-    const donate = () => {
-        window.open("https://ko-fi.com/osa413");
-    }
-    
+export const Header = ({setShowSettings, setShowDonate}:{setShowSettings: (x:boolean)=>any, setShowDonate:(x:boolean)=>void}) => {
     const showSettings = () => {
         setShowSettings(true);
     }
@@ -25,5 +21,3 @@ const Header = ({setShowSettings, setShowDonate}:{setShowSettings: (x:boolean)=>
         </div>
     )
 }
-
-export default Header;

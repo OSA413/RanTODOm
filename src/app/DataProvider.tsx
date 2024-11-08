@@ -24,7 +24,7 @@ class Table {
     }
 }
 
-class DataProvider {
+export class DataProvider {
     static Table = Table;
 
     static Init = () => {
@@ -32,5 +32,3 @@ class DataProvider {
         Table.Init(StorageProvider.LoadData());
     } 
 }
-
-export default DataProvider;
