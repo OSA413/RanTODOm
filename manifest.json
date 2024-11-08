@@ -1,10 +1,11 @@
 {
   "short_name": "RanTODOm",
-  "name": "TODO list with randomization",
+  "name": "RanTODOm",
+  "description": "TODO list with randomization",
   "icons": [
     {
       "src": "icon.svg",
-      "sizes": "512x512 192x192 64x64 32x32 24x24 16x16",
+      "sizes": "1024x1024 512x512 192x192 64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }
   ],
